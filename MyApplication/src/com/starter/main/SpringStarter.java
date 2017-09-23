@@ -1,6 +1,9 @@
 
 package com.starter.main;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
@@ -34,6 +37,14 @@ public class SpringStarter extends SpringBootServletInitializer {
 	public static void main(String[] args)  {
 		System.out.println("starting my spring application");
 		SpringApplication.run(SpringStarter.class, args);
+		try {
+		InetAddress ipAddress = InetAddress.getLocalHost();
+		System.out.println("IP of my system is := "+ipAddress.getHostAddress());
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Bean
